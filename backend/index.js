@@ -1,13 +1,20 @@
 const connectToMongo = require("./db");
+const express = require('express');
+const bodyParser = require('body-parser');
 
-const express = require("express");
-connectToMongo();
 const app = express();
-const port = 3000;
-app.use(express.json())
-//Available routes
+
+// Use body-parser middleware to parse JSON requests
+app.use(bodyParser.json());
+
+// Connect to MongoDB
+connectToMongo();
+
+const port = 8000;
+
+// Available routes
 app.use("/api/auth", require("./routes/auth"));
-app.use('/api/note',require('./routes/note'))
+app.use('/api/note', require('./routes/note'));
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
