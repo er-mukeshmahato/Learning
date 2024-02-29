@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 // Connect to MongoDB
 connectToMongo();
 
-const port = 8000;
+const port = process.env.PORT || 8000;
 
 // Available routes
 app.use("/api/auth", require("./routes/auth"));

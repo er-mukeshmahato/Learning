@@ -11,9 +11,6 @@ import { useLocation } from "react-router-dom";
 
 const HomeNav = () => {
   let location=useLocation();
-  useEffect(()=>{
-    console.log(location);
-  },[location])
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
